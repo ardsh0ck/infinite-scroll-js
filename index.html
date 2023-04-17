@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gallery</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+      crossorigin="anonymous"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Commissioner:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div
+        class="container custom-container d-flex align-items-center flex-nowrap col-12 mx-auto"
+        id="headerContainer"
+      >
+        <nav
+          class="offcanvas offcanvas-end fs-6 navigation"
+          tabindex="-1"
+          id="offcanvasNavbar"
+          aria-labelledby="offcanvasNavbarLabel"
+        >
+          <ul class="nav nav-pills">
+            <li class="nav-item">
+              <a href="#" class="nav-link active fw-bold position-relative p-0"
+                >Photos</a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link p-0">Videos</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link p-0">Podcasts</a>
+            </li>
+          </ul>
+
+          <!-- Close menu button -->
+          <button
+            class="position-absolute bottom-0 start-50 translate-middle navbar-toggler d-flex align-items-center justify-content-center navigation__toggle navigation__toggle--close"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasNavbar"
+            aria-controls="offcanvasNavbar"
+            aria-label="Toggle navigation"
+          >
+            <svg
+              fill="none"
+              height="24"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              <path
+                d="m18 18-6-6m0 0-6-6m6 6 6-6m-6 6-6 6"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+              />
+            </svg>
+          </button>
+        </nav>
+
+        <!-- Open menu button -->
+        <button
+          class="navbar-toggler d-flex align-items-center justify-content-center navigation__toggle"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasNavbar"
+          aria-controls="offcanvasNavbar"
+          aria-label="Toggle navigation"
+        >
+          <svg
+            fill="none"
+            height="24"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+          >
+            <path
+              clip-rule="evenodd"
+              d="m4 5c-.55228 0-1 .44772-1 1s.44772 1 1 1h16c.5523 0 1-.44772 1-1s-.4477-1-1-1zm-1 7c0-.5523.44772-1 1-1h16c.5523 0 1 .4477 1 1s-.4477 1-1 1h-16c-.55228 0-1-.4477-1-1zm0 6c0-.5523.44772-1 1-1h16c.5523 0 1 .4477 1 1s-.4477 1-1 1h-16c-.55228 0-1-.4477-1-1z"
+              fill="currentColor"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </button>
+
+        <!-- search -->
+        <form class="w-100 search" id="search">
+          <label class="d-block" for="searchInput">
+            <input
+              type="search"
+              class="w-100 rounded-pill border-0 outline-none fs-6 search__input"
+              id="searchInput"
+              placeholder="Search for anything..."
+            />
+            <span class="visually-hidden">Search for anything</span>
+          </label>
+        </form>
+
+        <!-- user's links -->
+        <ul class="d-flex m-0 p-0 list-unstyled user" id="user">
+          <li>
+            <a href="#" class="nav-link p-0 d-flex flex-row align-items-center">
+              English
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+              >
+                <path
+                  d="M8 10L12 14L16 10"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="square"
+                />
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="p-0 text-nowrap nav-link">Sign in</a>
+          </li>
+        </ul>
+      </div>
+    </header>
+
+    <section>
+      <div class="container col-12 d-flex page custom-container">
+        <aside class="col-4 sidebar">
+          <!-- Filters -->
+          <ul class="d-flex list-unstyled filters">
+            <li>
+              <a
+                href="#"
+                class="d-inline-flex alig-item-center btn btn-primary no-wrap"
+              >
+                <svg
+                  fill="none"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true"
+                >
+                  <g fill="currentColor">
+                    <path
+                      d="m15 6.5c-1.3807 0-2.5 1.11929-2.5 2.5 0 1.3807 1.1193 2.5 2.5 2.5s2.5-1.1193 2.5-2.5c0-1.38071-1.1193-2.5-2.5-2.5z"
+                    />
+                    <path
+                      clip-rule="evenodd"
+                      d="m3 3h18v18h-2.4734l-.0321.0002h-12.9945l-.03213-.0002h-2.46787zm16 9.8362c-1.1448 1.0618-2.2956 1.6175-4 1.6175-1.9056 0-3.3792-1.1678-4.8473-2.7489-1.00162-1.0786-2.63779-1.2713-3.86252-.4548l-.0226.0151-1.26758.9483v-7.2134h14z"
+                      fill-rule="evenodd"
+                    />
+                  </g>
+                </svg>
+                All photos
+              </a>
+            </li>
+            <li>
+              <a href="#" class="d-inline-flex alig-item-center btn">
+                <svg
+                  fill="none"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="m17.5 12c0 3.0376-2.4624 5.5-5.5 5.5-3.03757 0-5.5-2.4624-5.5-5.5m14.5 0c0 4.9706-4.0294 9-9 9-4.97056 0-9-4.0294-9-9 0-4.97056 4.02944-9 9-9 4.9706 0 9 4.02944 9 9z"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  />
+                  <g fill="currentColor">
+                    <path
+                      d="m11 9c0 .82843-.6716 1.5-1.5 1.5-.82843 0-1.5-.67157-1.5-1.5s.67157-1.5 1.5-1.5c.8284 0 1.5.67157 1.5 1.5z"
+                    />
+                    <path
+                      d="m16 9c0 .82843-.6716 1.5-1.5 1.5s-1.5-.67157-1.5-1.5.6716-1.5 1.5-1.5 1.5.67157 1.5 1.5z"
+                    />
+                  </g>
+                </svg>
+                Selfies
+              </a>
+            </li>
+            <li>
+              <a href="#" class="d-inline-flex alig-item-center btn">
+                <svg
+                  fill="none"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="m12 8v4l2.5 2.5m6.5-2.5c0 4.9706-4.0294 9-9 9-4.97056 0-9-4.0294-9-9 0-4.97056 4.02944-9 9-9 4.9706 0 9 4.02944 9 9z"
+                    stroke="currentColor"
+                    stroke-linecap="square"
+                    stroke-width="2"
+                  />
+                </svg>
+                Recent
+              </a>
+            </li>
+            <li>
+              <a href="#" class="d-inline-flex alig-item-center btn">
+                <svg
+                  fill="none"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="m6 21-.99779.0665.06224.9335h.93555zm12 0v1h.9356l.0622-.9335zm-15-16h-1v2h1zm18 2h1v-2h-1zm-10 4v-1h-2v1zm-2 5v1h2v-1zm6-5v-1h-2v1zm-2 5v1h2v-1zm-8.99779-9.93348 1 14.99998 1.99558-.133-1-15.00002zm1.99779 15.93348h12v-2h-12zm12.9978-.9335 1-14.99998-1.9956-.13304-1 15.00002zm.0022-16.0665h-14v2h14zm-16 2h2v-2h-2zm16 0h2v-2h-2zm-10 4v5h2v-5zm4 0v5h2v-5zm-1-7c1.3965 0 2.5725.95512 2.9055 2.24926l1.9369-.49852c-.555-2.15632-2.5112-3.75074-4.8424-3.75074zm-2.90555 2.24926c.33309-1.29414 1.50905-2.24926 2.90555-2.24926v-2c-2.33117 0-4.28742 1.59442-4.84242 3.75074z"
+                    fill="currentColor"
+                  />
+                </svg>
+                Deleted
+              </a>
+            </li>
+          </ul>
+        </aside>
+
+        <main class="col-8 content">
+          <!-- Gallery Header -->
+          <div class="d-flex justify-content-between gallery__header">
+            <div>
+              <h1 class="fw-bold">All photos</h1>
+              <strong class="gallery__sum">150 items</strong>
+            </div>
+
+            <div class="btn-group gallery__switcher">
+              <a href="#" class="btn btn-secondary active">Newest</a>
+              <a href="#" class="btn btn-secondary">Latest</a>
+            </div>
+          </div>
+
+          <!-- Gallery -->
+          <ul id="gallery" class="grid p-0 gallery"></ul>
+        </main>
+      </div>
+    </section>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      let page = 1
+      const limit = 9
+      let isLoading = false
+
+      function addImage(image) {
+        const gallery = document.querySelector('#gallery')
+
+        const texts = [
+          'Lorem ipsum dolor sit amet.',
+          'Consectetur adipiscing elit.',
+          'Praesent vel sapien ac augue rutrum varius.',
+          'Sed tincidunt turpis nec nulla sollicitudin, a vestibulum sapien ullamcorper. Sed tincidunt turpis nec nulla sollicitudin, a vestibulum sapien ullamcorper.',
+          'Nulla imperdiet mi vel urna vestibulum dapibus. Nulla imperdiet mi vel urna vestibulum dapibus.',
+          'Suspendisse convallis nisi in sem rutrum, vitae malesuada nulla aliquet.',
+          'Donec vitae mi eu ante bibendum imperdiet.',
+          'Mauris ac risus aliquam, gravida neque vel, interdum diam.',
+          'Ut vehicula tortor id tristique hendrerit.',
+        ]
+
+        const headings = [
+          'Lorem ipsum',
+          'Consectetur',
+          'Praesent vel',
+          'Sed tincidun',
+          'Nulla imperdiet',
+          'Suspendisse',
+          'Donec vitae',
+          'Mauris ac',
+          'Ut vehicula',
+        ]
+
+        const imageContainer = document.createElement('li')
+        imageContainer.className = 'card overflow-hidden'
+
+        const img = document.createElement('img')
+        img.className = 'card-img-top'
+        img.src = image.download_url
+        img.alt = image.author
+
+        const body = document.createElement('div')
+        body.className = 'card-body d-flex flex-column p-0'
+
+        const textContainer = document.createElement('div')
+        textContainer.className = 'gallery__text-container'
+
+        const heading = document.createElement('h4')
+        heading.textContent = randomTextConten(headings)
+        heading.className = 'fw-bold'
+
+        const text = document.createElement('p')
+        text.textContent = randomTextConten(texts)
+        text.className = 'm-0 fs-6 gallery__text'
+
+        const showMore = document.createElement('button')
+        showMore.textContent = 'Show more...'
+        showMore.className =
+          'btn btn-link fs-6 text-decoration-none p-0 gallery__show-more'
+
+        const buttons = document.createElement('div')
+        buttons.className =
+          'd-flex flex-row alig-item-center mt-auto border-top gallery__buttons'
+
+        const saveButton = document.createElement('button')
+        saveButton.innerText = 'Save to collection'
+        saveButton.className = 'btn btn-primary'
+
+        const shareButton = document.createElement('button')
+        shareButton.innerText = 'Share'
+        shareButton.className = 'btn btn-secondary'
+
+        imageContainer.appendChild(img)
+        imageContainer.appendChild(body)
+        body.appendChild(textContainer)
+        textContainer.appendChild(heading)
+        textContainer.appendChild(text)
+        body.appendChild(buttons)
+        buttons.appendChild(saveButton)
+        buttons.appendChild(shareButton)
+
+        gallery.appendChild(imageContainer)
+
+        if (text.scrollHeight > text.clientHeight) {
+          text.classList.add('gallery__text--truncated')
+        }
+
+        if (text.scrollHeight > text.clientHeight) {
+          textContainer.appendChild(showMore)
+        }
+
+        showMore.addEventListener('click', () => {
+          showMore.style.display = 'none'
+          text.classList.remove('gallery__text--truncated')
+          text.classList.add('gallery__text--untruncated')
+        })
+      }
+
+      function randomTextConten(textArray) {
+        const array = textArray
+        const randomIndex = Math.floor(Math.random() * array.length)
+        return array[randomIndex]
+      }
+
+      function handleScroll() {
+        const scrollTop =
+          document.documentElement.scrollTop || document.body.scrollTop
+        const scrollHeight =
+          document.documentElement.scrollHeight || document.body.scrollHeight
+        const clientHeight =
+          document.documentElement.clientHeight || window.innerHeight
+
+        if (scrollTop + clientHeight >= scrollHeight - 50 && !isLoading) {
+          isLoading = true
+          page++
+
+          fetch(`https://picsum.photos/v2/list?page=${page}&limit=${limit}`)
+            .then((response) => response.json())
+            .then((data) => {
+              data.forEach(addImage)
+              isLoading = false
+            })
+        }
+      }
+
+      fetch(`https://picsum.photos/v2/list?page=${page}&limit=${limit}`)
+        .then((response) => response.json())
+        .then((data) => {
+          data.forEach(addImage)
+          isLoading = false
+        })
+
+      window.addEventListener('scroll', handleScroll)
+
+      const navigation = document.getElementById('offcanvasNavbar')
+      const user = document.getElementById('user')
+      const header = document.getElementById('headerContainer')
+      const smallDevice = window.matchMedia('(min-width: 1024px)')
+
+      smallDevice.addListener(handleDeviceChange)
+
+      function handleDeviceChange(e) {
+        if (e.matches) {
+          navigation.classList.remove('offcanvas', 'offcanvas-end')
+          navigation.removeChild(user)
+          header.appendChild(user)
+        } else {
+          navigation.classList.add('offcanvas', 'offcanvas-end')
+          navigation.appendChild(user)
+        }
+      }
+
+      handleDeviceChange(smallDevice)
+    </script>
+  </body>
+</html>
